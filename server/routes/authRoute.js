@@ -3,6 +3,7 @@ const User = require("../models/user");
 const { body } = require("express-validator");
 const validation = require("../handlers/validation");
 const userController = require("../contollers/userController");
+const tokenHandler = require("../handlers/tokenHendler");
 
 router.post(
   "/register",
@@ -23,5 +24,20 @@ router.post(
   validation.validate,
   userController.register
 );
+
+router.post(
+  "/login",
+  body("email").trim().isEmail().withMessage("Invalid email"),
+  body("password")
+    .isLength({ min: 6 })
+    .withMessage("password must be at least 6"),
+  validation.validate,
+  userController.login
+);
+
+// JWT token verification
+router.post("/verify-token", (req, res) => {
+  return res.status(200).json({ user: req.user });
+});
 
 module.exports = router;

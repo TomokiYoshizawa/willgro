@@ -25,3 +25,41 @@ exports.register = async (req, res) => {
     return res.status(500).json(err);
   }
 };
+
+exports.login = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    //find a user from db
+    const user = await User.findOne({ email: email });
+    if (!user)
+      return res.status(401).json({
+        errors: {
+          param: "email",
+          msg: "email not found",
+        },
+      });
+    //confirm if the password is correct
+    const decryptedPassword = CryptoJS.AES.decrypt(
+      user.password,
+      CRYPT_SECRET_KEY
+    ).toString(CryptoJS.enc.Utf8);
+
+    if (decryptedPassword !== password)
+      return res.status(401).json({
+        errors: {
+          param: "password",
+          msg: "password is incorrect",
+        },
+      });
+
+    //Issue JWT
+    const token = JWT.sign({ id: user._id }, TOKEN_SECRET_KEY, {
+      expiresIn: "24h",
+    });
+
+    return res.status(201).json({ user, token });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+};
