@@ -1,7 +1,7 @@
 const { CRYPT_SECRET_KEY, TOKEN_SECRET_KEY } = process.env;
 const JWT = require("jsonwebtoken");
 const CryptoJS = require("crypto-js");
-const User = require("../models/user");
+const User = require("../models/userModel");
 
 exports.register = async (req, res) => {
   const password = req.body.password;

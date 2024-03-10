@@ -1,14 +1,15 @@
 const JWT = require("jsonwebtoken");
 const { TOKEN_SECRET_KEY } = process.env;
-const User = require("../models/user");
+const User = require("../models/userModel");
 
 //check if token is valid from the client
 const tokenDecode = (req) => {
   const bearerHeader = req.headers["authorization"];
-  if (beaerHeader) {
+  if (bearerHeader) {
     const bearer = bearerHeader.split(" ")[1];
     try {
       const decodedToken = JWT.verify(bearer, TOKEN_SECRET_KEY);
+      return decodedToken;
     } catch (err) {
       console.log(err);
       return false;
