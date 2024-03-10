@@ -28,6 +28,10 @@
       top: -250px;
       font-size: 2rem;
     }
+    @include desktop {
+      top: -400px;
+      font-size: 2.5rem;
+    }
   }
 
   &__txt {
