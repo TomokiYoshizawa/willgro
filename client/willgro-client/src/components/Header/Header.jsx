@@ -1,6 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import willgroLogo from "../../assets/image/willgro.jpg";
-import LoginIcon from "@mui/icons-material/Login";
 
 import "./Header.scss";
 
@@ -24,22 +24,22 @@ function Header() {
             <div className="header__navigation--inner">
               <ul className="header__navigation--list">
                 <li className="header__navigation--item">
-                  <a href="#" className="header__navigation--link">
+                  <a href="/" className="header__navigation--link">
                     Home
                   </a>
                 </li>
                 <li className="header__navigation--item">
-                  <a href="#" className="header__navigation--link">
+                  <a href="/products" className="header__navigation--link">
                     Products
                   </a>
                 </li>
                 <li className="header__navigation--item">
-                  <a href="#" className="header__navigation--link">
+                  <a href="/contact" className="header__navigation--link">
                     Contact
                   </a>
                 </li>
                 <li className="header__navigation--item">
-                  <a href="#" className="header__navigation--link">
+                  <a href="login" className="header__navigation--link">
                     Login
                   </a>
                 </li>

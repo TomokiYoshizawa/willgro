@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -11,7 +12,9 @@ function App() {
     <BrowserRouter>
       <div className="app">
         <Header />
-        <HomePage />
+        <Routes>
+          <Route path="/" element={<HomePage />} />/
+        </Routes>
       </div>
     </BrowserRouter>
   );
