@@ -11,7 +11,7 @@ function Hero() {
         </div>
         <div className="hero__disc-box">
           <h3 className="hero__heading">Let's plant seeds together</h3>
-          <p className="hero__text">
+          <p className="hero__txt">
             Grow beautiful plants all year long with our specialty blended plant
             media!
           </p>

@@ -1,0 +1,68 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.story {
+  padding: 1rem;
+  @include font-styles(1.6rem, 700, 2);
+  @include tablet {
+    padding: 3rem;
+    @include font-styles(1.5rem, 700, 2);
+  }
+
+  &__wrapper {
+    @include tablet {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  &__img-container {
+    @include tablet {
+      // width: 50%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__img-tablet {
+    display: none;
+    @include tablet {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__img-mobile {
+    width: 100%;
+    padding-top: 1rem;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__disc-container {
+    border: none;
+    @include tablet {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-left: 2rem;
+    }
+  }
+
+  &__heading {
+    text-align: center;
+  }
+
+  &__txt {
+    padding-bottom: 10px;
+    @include font-styles(1.2rem, 600, 1);
+
+    &--highlight {
+      font-weight: bold;
+      color: $willgro-primary;
+    }
+  }
+}
