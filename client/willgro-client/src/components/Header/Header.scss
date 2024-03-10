@@ -25,7 +25,7 @@
     top: 0;
     right: -250px;
     bottom: 0;
-    transition: right 5s ease;
+    transition: right 0.5s ease;
     z-index: 3;
 
     &.open {
@@ -33,28 +33,56 @@
       right: 0;
       background: #000;
       opacity: 0.8;
+      @include tablet {
+        display: absolute;
+        background: #ffffff;
+      }
+    }
+
+    @include tablet {
+      display: block;
+      position: absolute;
+      width: 350px;
+      right: 0;
     }
 
     &--inner {
       padding-top: 25px;
+      @include tablet {
+        padding-top: 10px;
+      }
     }
 
     &--list {
       list-style: none;
+      @include tablet {
+        display: flex;
+        justify-content: end;
+      }
     }
 
     &--item {
       border-bottom: 1px solid #333;
+      @include tablet {
+        margin-left: 10px;
+        border-bottom: none;
+      }
     }
 
     &--link {
       display: block;
       color: $willgro-primary;
-      font-size: 14px;
+      font-size: 1rem;
+      font-weight: 600;
       padding: 1rem;
       text-align: center;
       text-decoration: none;
       transition-duration: 0.2s;
+      @include tablet {
+        margin-left: 10px;
+        // padding: 10px;
+        border-bottom: 1px solid #333;
+      }
     }
   }
 
@@ -67,6 +95,9 @@
     height: 30px;
     z-index: 5;
     cursor: pointer;
+    @include tablet {
+      display: none;
+    }
 
     &.active span:nth-child(1) {
       transform: rotate(45deg);

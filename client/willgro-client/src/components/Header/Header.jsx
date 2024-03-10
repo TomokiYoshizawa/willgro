@@ -52,7 +52,6 @@ function Header() {
             }`}
             onClick={openToggle}
           >
-            {" "}
             <span></span>
             <span></span>
             <span></span>
