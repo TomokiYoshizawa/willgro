@@ -1,17 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 const stripeTestAccount = process.env.STRIPE_TEST_ACCOUNT;
 
 const YOUR_DOMAIN = "http://localhost:5173";
 
-router.get("/", async (req, res) => {
-  res.send("payment route");
-});
+router.post("/checkout/create-checkout-session", async (req, res) => {
+  //receiving the product price and quantity from client
+  const { productPrice, productQuantity } = req.body;
 
-router.post("/create-checkout-session", async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
+  const session = await STRIPE_SECRET_KEY.checkout.sessions.create({
     line_items: [
       {
         // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
