@@ -1,0 +1,81 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.buy-modal {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__heading-container {
+    padding: 1rem;
+  }
+  &__title {
+    @include font-styles(2rem, 800, 1);
+  }
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    @include tablet {
+      height: 30vh;
+    }
+  }
+  &__text {
+    text-align: center;
+    padding: 1rem;
+    @include font-styles(1rem, 800, 1);
+  }
+  &__button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1rem;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__btn {
+    height: 2.5rem;
+    width: 90%;
+    min-width: 10rem;
+    border: 1px solid rgb(3, 62, 3);
+    border-radius: 50px;
+    background-color: $willgro-primary;
+
+    @include font-styles(1rem, 800, 1);
+
+    &--mobile {
+      margin-bottom: 1rem;
+    }
+
+    &--tablet {
+      display: none;
+    }
+    @include tablet {
+      &--mobile {
+        display: none;
+      }
+      &--tablet {
+        display: block;
+        margin-left: 1rem;
+      }
+    }
+  }
+}

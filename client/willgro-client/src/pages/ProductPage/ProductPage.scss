@@ -1,0 +1,7 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.product-page {
+  @include font-styles(1.6rem, 700, 2);
+  text-align: center;
+}

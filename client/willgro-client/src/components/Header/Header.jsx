@@ -29,7 +29,7 @@ function Header() {
                   </a>
                 </li>
                 <li className="header__navigation--item">
-                  <a href="/products" className="header__navigation--link">
+                  <a href="/product" className="header__navigation--link">
                     Products
                   </a>
                 </li>
