@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authApi from "../../api/authApi";
 
 function RegisterPage() {
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,9 +47,7 @@ function RegisterPage() {
       setConfirmErrText("Passwords must match");
     }
 
-    if (error) {
-      return;
-    }
+    if (error) return;
 
     // Implement your API call here
     try {
@@ -59,8 +59,24 @@ function RegisterPage() {
       });
       localStorage.setItem("token", res.data.token);
       console.log("Register successfully");
+      navigate("/");
     } catch (error) {
-      console.error(error);
+      const errors = error.data.errors;
+      //   console.error(errors);
+      errors.forEach((err) => {
+        if (err.path === "username") {
+          setUsernameErrText(err.msg);
+        }
+        if (err.path === "email") {
+          setEmailErrText(err.msg);
+        }
+        if (err.path === "password") {
+          setPasswordErrText(err.msg);
+        }
+        if (err.path === "confirmPassword") {
+          setConfirmErrText(err.msg);
+        }
+      });
     }
   };
 
@@ -80,7 +96,6 @@ function RegisterPage() {
                 className="register__form--input"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                required
               />
               {usernameErrText && (
                 <div className="error-text">{usernameErrText}</div>
@@ -98,7 +113,6 @@ function RegisterPage() {
                 className="register__form--input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
               {emailErrText && <div className="error-text">{emailErrText}</div>}
             </div>
@@ -114,7 +128,6 @@ function RegisterPage() {
                 className="register__form--input"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
               />
               {passwordErrText && (
                 <div className="error-text">{passwordErrText}</div>
@@ -135,7 +148,6 @@ function RegisterPage() {
                 className="register__form--input"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                required
               />
               {confirmErrText && (
                 <div className="error-text">{confirmErrText}</div>
