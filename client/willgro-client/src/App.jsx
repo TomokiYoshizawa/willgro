@@ -6,6 +6,8 @@ import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import BuyModal from "./components/BuyModal/BuyModal";
+import Login from "./pages/LoginPage/LoginPage";
+import Register from "./pages/RegisterPage/RegisterPage";
 
 import "./App.scss";
 
@@ -18,6 +20,8 @@ function App() {
           <Route path="/" element={<HomePage />} />/
           <Route path="/product" element={<ProductPage />} />/
           <Route path="/product/:id" element={<BuyModal />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </BrowserRouter>

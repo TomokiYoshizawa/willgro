@@ -18,9 +18,8 @@ const BuyModal = () => {
 
   useEffect(() => {
     const getSingleProduct = async () => {
-      const response = await axios.get(
-        `${import.meta.env.VITE_SERVER_URL}/product/${id}`
-      );
+      const response = await axios.get(`${VITE_SERVER_URL}/product/${id}`);
+
       setSelectedProduct(response.data);
     };
 
