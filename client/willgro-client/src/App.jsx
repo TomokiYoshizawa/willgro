@@ -10,6 +10,7 @@ import Login from "./pages/LoginPage/LoginPage";
 import Register from "./pages/RegisterPage/RegisterPage";
 
 import "./App.scss";
+import AuthLayout from "../layout/AuthLayout/AuthLayout";
 
 function App() {
   return (
@@ -20,8 +21,10 @@ function App() {
           <Route path="/" element={<HomePage />} />/
           <Route path="/product" element={<ProductPage />} />/
           <Route path="/product/:id" element={<BuyModal />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<AuthLayout />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

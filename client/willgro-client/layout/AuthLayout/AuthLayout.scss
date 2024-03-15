@@ -1,0 +1,13 @@
+.auth {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10%;
+  }
+
+  &__desc {
+    font-size: 20px;
+  }
+}
