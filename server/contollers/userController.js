@@ -33,10 +33,12 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ email: email });
     if (!user)
       return res.status(401).json({
-        errors: {
-          param: "email",
-          msg: "email not found",
-        },
+        errors: [
+          {
+            param: "email",
+            msg: "email not found",
+          },
+        ],
       });
     //confirm if the password is correct
     const decryptedPassword = CryptoJS.AES.decrypt(
@@ -46,10 +48,12 @@ exports.login = async (req, res) => {
 
     if (decryptedPassword !== password)
       return res.status(401).json({
-        errors: {
-          param: "password",
-          msg: "password is incorrect",
-        },
+        errors: [
+          {
+            param: "password",
+            msg: "password is incorrect",
+          },
+        ],
       });
 
     //Issue JWT

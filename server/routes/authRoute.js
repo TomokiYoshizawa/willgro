@@ -7,6 +7,7 @@ const tokenHandler = require("../handlers/tokenHendler");
 
 router.post(
   "/register",
+  body("username").trim().isLength({ min: 1 }).withMessage("Name is required"),
   body("email").trim().isEmail().withMessage("Invalid email"),
   body("password")
     .isLength({ min: 6 })
