@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import willgroLogo from "../../src/assets/image/willgro.jpg";
 
 import "./AuthLayout.scss";
-import authUtils from "../../src/utils/atuhUtils";
+import authUtils from "../../src/utils/authUtils";
 import { useEffect } from "react";
 
 function AuthLayout() {

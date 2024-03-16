@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import willgroLogo from "../../assets/image/willgro.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/features/userSlice";
 
 import "./Header.scss";
 
@@ -8,9 +10,18 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
+  const user = useSelector((state) => state.user.value);
+  console.log(user);
+  const dispatch = useDispatch();
+
   const openToggle = () => {
     setIsOpen(!isOpen);
     setIsActive(!isActive);
+  };
+
+  const handleLogout = (event) => {
+    localStorage.removeItem("token");
+    dispatch(logout());
   };
 
   return (
@@ -39,9 +50,21 @@ function Header() {
                   </a>
                 </li>
                 <li className="header__navigation--item">
-                  <a href="/login" className="header__navigation--link">
-                    Login
-                  </a>
+                  {user && Object.keys(user).length > 0 ? (
+                    <a
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleLogout();
+                      }}
+                      className="header__navigation--link"
+                    >
+                      Logout
+                    </a>
+                  ) : (
+                    <a href="/login" className="header__navigation--link">
+                      Login
+                    </a>
+                  )}
                 </li>
               </ul>
             </div>

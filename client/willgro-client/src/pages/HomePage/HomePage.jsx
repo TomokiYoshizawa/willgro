@@ -5,9 +5,17 @@ import Hero from "../../components/Hero/Hero";
 import Story from "../../components/Story/Story";
 import Partner from "../../components/Partner/Partner";
 
+import { useSelector as UseSelector } from "react-redux";
+import { useAuth } from "../../hooks/useAuth";
+
 function HomePage() {
+  useAuth();
+  const user = UseSelector((state) => state.user.value);
+  console.log();
+
   return (
     <div>
+      <h2> username here {user.username}</h2>
       <Hero />
       <Story />
       <Partner />
