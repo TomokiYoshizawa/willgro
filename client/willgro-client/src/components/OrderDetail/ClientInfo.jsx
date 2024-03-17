@@ -1,28 +1,65 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../hooks/useAuth.jsx";
 import { useSelector as UseSelector } from "react-redux";
 
-function OrderDetail() {
+function ClientInfo({ selectedProduct }) {
+  // console.log(selectedProduct);
   useAuth();
   const user = UseSelector((state) => state.user.value);
-  console.log(user);
+  const VITE_SERVER_URL = import.meta.env.VITE_SERVER_URL;
+  const items = [
+    {
+      name: selectedProduct.id,
+      price: selectedProduct.price,
+      quantity: 1,
+    },
+  ];
+  // console.log(items);
+  // console.log(user);
 
   //date setting
   const [currentDate, setCurrentDate] = useState("");
 
   useEffect(() => {
     const now = new Date();
-    const formattedDate = now.toISOString().split("T")[0]; // YYYY-MM-DD形式に整形
+    const formattedDate = now.toISOString().split("T")[0];
     setCurrentDate(formattedDate);
   }, []);
 
-  const handleCheckout = (e) => {};
+  const handleCheckout = async (e) => {
+    e.preventDefault();
+    const items = [
+      {
+        name: selectedProduct.id,
+        price: selectedProduct.price,
+        quantity: 1,
+      },
+    ];
+    const response = await fetch(
+      `${VITE_SERVER_URL}/payment/create-checkout-session`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ items }),
+      }
+    );
+    const { url } = await response.json();
+    window.location.href = url;
+    console.log(url);
+  };
 
   return (
     <div className="client">
       <div className="client__wrapper">
-        <form action="submit" className="client__form">
+        <form
+          action={`${VITE_SERVER_URL}/payment/create-checkout-session`}
+          method="post"
+          className="client__form"
+        >
           <div className="client__form--group client__form--group--hidden">
             <label htmlFor="name" className="client__form--label">
               Date
@@ -127,17 +164,17 @@ function OrderDetail() {
               required
             />
           </div>
+          <button
+            onClick={handleCheckout}
+            className="payment__checkout-btn"
+            type="submit"
+          >
+            Checkout
+          </button>
         </form>
-        <button
-          onClick={handleCheckout}
-          className="payment__checkout-btn"
-          type="submit"
-        >
-          Checkout
-        </button>
       </div>
     </div>
   );
 }
 
-export default OrderDetail;
+export default ClientInfo;

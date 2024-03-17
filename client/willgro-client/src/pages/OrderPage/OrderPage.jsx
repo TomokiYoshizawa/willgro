@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth.jsx";
@@ -8,6 +9,7 @@ import OrderDetail from "../../components/OrderDetail/ClientInfo.jsx";
 import "./OrderPage.scss";
 function OrderPage() {
   useAuth();
+  // eslint-disable-next-line no-unused-vars
   const user = UseSelector((state) => state.user.value);
   //   console.log(user);
   const location = useLocation();
