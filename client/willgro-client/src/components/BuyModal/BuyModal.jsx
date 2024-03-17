@@ -29,7 +29,7 @@ const BuyModal = () => {
   }, [id]);
 
   const handleBuyNow = () => {
-    navigate("/payment", { state: { selectedProduct: selectedProduct } });
+    navigate("/order", { state: { selectedProduct: selectedProduct } });
   };
 
   return (

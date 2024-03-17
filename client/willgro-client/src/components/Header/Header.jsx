@@ -11,7 +11,7 @@ function Header() {
   const [isActive, setIsActive] = useState(false);
 
   const user = useSelector((state) => state.user.value);
-  console.log(user);
+  // console.log(user);
   const dispatch = useDispatch();
 
   const openToggle = () => {

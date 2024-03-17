@@ -11,7 +11,7 @@ import { useAuth } from "../../hooks/useAuth";
 function HomePage() {
   useAuth();
   const user = UseSelector((state) => state.user.value);
-  console.log();
+  // console.log(user);
 
   return (
     <div>
