@@ -8,10 +8,6 @@ const stripe = require("stripe")(STRIPE_SECRET_KEY);
 
 const YOUR_DOMAIN = "http://localhost:5173";
 
-// router.get("/", (req, res) => {
-//   res.send("Payment route");
-// });
-
 router.post("/create-checkout-session", async (req, res) => {
   console.log(req.body);
   const { items } = req.body; // クライアントから送られてきた商品情報
@@ -20,11 +16,11 @@ router.post("/create-checkout-session", async (req, res) => {
     payment_method_types: ["card"],
     line_items: items.map((item) => ({
       price_data: {
-        currency: "jpy",
+        currency: "cad",
         product_data: {
           name: item.name,
         },
-        unit_amount: item.price,
+        unit_amount: Math.round(item.price * 100),
       },
       quantity: item.quantity,
     })),
