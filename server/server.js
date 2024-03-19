@@ -5,6 +5,7 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 const app = express();
+const path = require("path");
 require("dotenv").config();
 
 const authRouter = require("./routes/authRoute");
@@ -25,6 +26,7 @@ app.use(express.json());
 // app.use(express.static("public"));
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
+// app.use(cors());
 app.use(cors(corsOptions));
 
 app.use("/auth", authRouter);
