@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const corsOptions = {
-  origin: "https://willgro.netlify.app/",
+  origin: "https://willgro.netlify.app",
   optionsSuccessStatus: 200,
 };
 const app = express();
