@@ -23,7 +23,7 @@ router.post("/create-checkout-session", async (req, res) => {
       quantity: item.quantity,
     })),
     mode: "payment",
-    success_url: `${YOUR_DOMAIN}/success.html`,
+    success_url: `${YOUR_DOMAIN}/success`,
     cancel_url: `${YOUR_DOMAIN}/product`,
   });
 
