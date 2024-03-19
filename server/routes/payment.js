@@ -9,9 +9,7 @@ const stripe = require("stripe")(STRIPE_SECRET_KEY);
 const YOUR_DOMAIN = "http://localhost:5173";
 
 router.post("/create-checkout-session", async (req, res) => {
-  console.log(req.body);
   const { items } = req.body; // クライアントから送られてきた商品情報
-  console.log(items);
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     line_items: items.map((item) => ({
