@@ -6,6 +6,7 @@ import "./ProductCard.scss";
 const SERVER_PUBLIC_FOLDER = import.meta.env.VITE_SERVER_PUBLIC_FOLDER;
 
 function ProductCard({ productData }) {
+  console.log(productData);
   return (
     <div className="product-card">
       <div className="product-card__wrapper">
