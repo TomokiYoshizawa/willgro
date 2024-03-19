@@ -18,7 +18,9 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use(express.json());
-app.use(express.static("public"));
+// app.use(express.static("public"));
+app.use("/images", express.static(path.join(__dirname, "public/images")));
+
 app.use(cors());
 // for cors{
 // origin: "http://localhost:5173",
