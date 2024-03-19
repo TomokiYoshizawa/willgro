@@ -4,12 +4,12 @@ import { useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth.jsx";
 import { useSelector as UseSelector } from "react-redux";
 
-import OrderDetail from "../../components/OrderDetail/ClientInfo.jsx";
+import OrderDetail from "../../components/OrderDetail/OrderDetail.jsx";
 
 import "./OrderPage.scss";
+
 function OrderPage() {
   useAuth();
-  // eslint-disable-next-line no-unused-vars
   const user = UseSelector((state) => state.user.value);
   //   console.log(user);
   const location = useLocation();
@@ -33,12 +33,14 @@ function OrderPage() {
               />
             )}
           </div>
-          <p className="order__name">
-            {selectedProduct && selectedProduct.product_name}
-          </p>
-          <p className="order__price">
-            {selectedProduct && `$ ${selectedProduct.price}`}
-          </p>
+          <div className="order__disc-box">
+            <p className="order__disc">
+              {selectedProduct && selectedProduct.product_name}
+            </p>
+            <p className="order__disc">
+              {selectedProduct && `$ ${selectedProduct.price}`}
+            </p>
+          </div>
         </div>
         <div className="order__container--right">
           <OrderDetail selectedProduct={selectedProduct} />

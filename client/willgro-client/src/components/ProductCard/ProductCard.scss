@@ -8,6 +8,16 @@
       justify-content: center;
     }
   }
+  &__item {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    @include tablet {
+      width: 30%;
+      display: flex;
+    }
+  }
+
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -17,32 +27,29 @@
   }
 
   &__link {
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    width: 80%;
+    padding: 20px;
     text-decoration: none;
     color: black;
-    display: flex;
-  }
-
-  &__item {
-    list-style: none;
-    justify-content: center;
-    width: 100%;
-    @include tablet {
-      width: 30%;
-      display: flex;
-    }
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: white;
   }
 
   &__img {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
   }
 
   &__text {
     text-align: center;
+    font-size: 1.2rem;
     @include tablet {
     }
   }

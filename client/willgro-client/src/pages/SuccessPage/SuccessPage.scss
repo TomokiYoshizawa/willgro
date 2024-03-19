@@ -1,0 +1,22 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.success__title {
+  color: $willgro-primary;
+  margin-bottom: 20px;
+}
+
+.success__disc {
+  color: #333;
+  margin-bottom: 10px;
+}

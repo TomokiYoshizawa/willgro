@@ -9,6 +9,7 @@ import BuyModal from "./components/BuyModal/BuyModal";
 import Login from "./pages/LoginPage/LoginPage";
 import Register from "./pages/RegisterPage/RegisterPage";
 import OrderPage from "./pages/OrderPage/OrderPage";
+import SuccessPage from "./pages/SuccessPage/SuccessPage";
 
 import "./App.scss";
 import AuthLayout from "../layout/AuthLayout/AuthLayout";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/product" element={<ProductPage />} />/
           <Route path="/product/:id" element={<BuyModal />} />
           <Route path="/order" element={<OrderPage />} />
+          <Route path="/success" element={<SuccessPage />} />
           <Route path="/" element={<AuthLayout />}>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

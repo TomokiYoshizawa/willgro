@@ -5,6 +5,8 @@ import Hero from "../../components/Hero/Hero";
 import Story from "../../components/Story/Story";
 import Partner from "../../components/Partner/Partner";
 
+import "./HomePage.scss";
+
 import { useSelector as UseSelector } from "react-redux";
 import { useAuth } from "../../hooks/useAuth";
 
@@ -14,8 +16,8 @@ function HomePage() {
   // console.log(user);
 
   return (
-    <div>
-      <h2> username here {user.username}</h2>
+    <div className="home">
+      <h2 className="home__disc"> Welcome! {user.username}</h2>
       <Hero />
       <Story />
       <Partner />
