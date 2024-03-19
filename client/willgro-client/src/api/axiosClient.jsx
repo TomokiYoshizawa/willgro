@@ -1,12 +1,13 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080";
+const { VITE_SERVER_URL } = import.meta.env;
+
 const getToken = () => {
   return localStorage.getItem("token");
 };
 
 const axiosClient = axios.create({
-  baseURL: BASE_URL,
+  baseURL: VITE_SERVER_URL,
 });
 
 axiosClient.interceptors.request.use(async (config) => {
