@@ -6,10 +6,10 @@ const stripeTestAccount = process.env.STRIPE_TEST_ACCOUNT;
 
 const stripe = require("stripe")(STRIPE_SECRET_KEY);
 
-const YOUR_DOMAIN = "http://localhost:5173";
+const YOUR_DOMAIN = process.env.YOUR_DOMAIN || `http://localhost:8080`;
 
 router.post("/create-checkout-session", async (req, res) => {
-  const { items } = req.body; // クライアントから送られてきた商品情報
+  const { items } = req.body;
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     line_items: items.map((item) => ({

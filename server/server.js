@@ -1,9 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const corsOptions = {
-  origin: "https://willgro.netlify.app",
-  optionsSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: "https://willgro.netlify.app",
+//   optionsSuccessStatus: 200,
+// };
 const app = express();
 const path = require("path");
 require("dotenv").config();
@@ -26,8 +26,8 @@ app.use(express.json());
 // app.use(express.static("public"));
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
-// app.use(cors());
-app.use(cors(corsOptions));
+app.use(cors());
+// app.use(cors(corsOptions));
 
 app.use("/auth", authRouter);
 app.use("/product", productRouter);
