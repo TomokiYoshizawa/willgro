@@ -5,7 +5,7 @@ const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 
 const stripe = require("stripe")(STRIPE_SECRET_KEY);
 
-const YOUR_DOMAIN = process.env.YOUR_DOMAIN || `http://localhost:8080`;
+const CLIENT_URL = process.env.CLIENT_URL || `http://localhost:8080`;
 
 router.post("/create-checkout-session", async (req, res) => {
   const { items } = req.body;
@@ -22,8 +22,8 @@ router.post("/create-checkout-session", async (req, res) => {
       quantity: item.quantity,
     })),
     mode: "payment",
-    success_url: `${YOUR_DOMAIN}/success`,
-    cancel_url: `${YOUR_DOMAIN}/product`,
+    success_url: `${CLIENT_URL}/success`,
+    cancel_url: `${CLIENT_URL}/product`,
   });
 
   res.json({ url: session.url });
