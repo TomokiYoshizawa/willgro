@@ -5,7 +5,7 @@ const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 
 const stripe = require("stripe")(STRIPE_SECRET_KEY);
 
-const CLIENT_URL = process.env.CLIENT_URL || `http://localhost:8080`;
+const CLIENT_URL = process.env.CLIENT_URL;
 
 router.post("/create-checkout-session", async (req, res) => {
   const { items } = req.body;
