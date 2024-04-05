@@ -13,7 +13,7 @@ export function useAuth() {
     const checkAuth = async () => {
       const user = await authUtils.isAuthenticated();
       if (!user) {
-        navigate("/");
+        // navigate("/");
       } else {
         dispatch(setUser(user));
       }

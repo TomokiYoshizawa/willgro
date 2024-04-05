@@ -4,6 +4,7 @@ import React from "react";
 import Hero from "../../components/Hero/Hero";
 import Story from "../../components/Story/Story";
 import Partner from "../../components/Partner/Partner";
+import Slide from "../../components/Slide/Slide";
 
 import "./HomePage.scss";
 
@@ -21,6 +22,7 @@ function HomePage() {
       <Hero />
       <Story />
       <Partner />
+      <Slide />
     </div>
   );
 }

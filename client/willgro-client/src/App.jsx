@@ -10,6 +10,7 @@ import Login from "./pages/LoginPage/LoginPage";
 import Register from "./pages/RegisterPage/RegisterPage";
 import OrderPage from "./pages/OrderPage/OrderPage";
 import SuccessPage from "./pages/SuccessPage/SuccessPage";
+import Footer from "./components/Footer/Footer";
 
 import "./App.scss";
 import AuthLayout from "../layout/AuthLayout/AuthLayout";
@@ -30,6 +31,7 @@ function App() {
             <Route path="/register" element={<Register />} />
           </Route>
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

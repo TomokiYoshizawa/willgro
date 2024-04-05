@@ -1,0 +1,23 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.slide {
+  &__container {
+    height: 60%;
+    @include desktop {
+      height: 80vh;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    @include desktop {
+      object-fit: cover;
+      background-position: center;
+      object-position: center bottom;
+    }
+  }
+}

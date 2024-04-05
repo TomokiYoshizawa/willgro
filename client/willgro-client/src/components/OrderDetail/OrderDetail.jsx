@@ -154,7 +154,8 @@ function detailInfo({ selectedProduct }) {
               name="email"
               className="detail__form--input"
               value={user.email || ""}
-              readOnly
+              // readOnly
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>

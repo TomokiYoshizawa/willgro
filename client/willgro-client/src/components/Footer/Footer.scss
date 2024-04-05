@@ -1,0 +1,34 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  padding: 0 16px;
+  margin-top: 16px;
+  background-color: #cdc5c5;
+
+  &__img-box {
+    flex: 5.5;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__desc-box {
+    flex: 4.5;
+    text-align: right;
+  }
+
+  &__img {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+
+    @include tablet {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
