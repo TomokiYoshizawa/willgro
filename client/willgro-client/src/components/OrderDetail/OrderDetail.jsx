@@ -53,6 +53,7 @@ function detailInfo({ selectedProduct }) {
       date: currentDate,
       user_id: user._id,
       name,
+      email,
       phone_number: phoneNumber,
       address,
       city,
@@ -153,7 +154,7 @@ function detailInfo({ selectedProduct }) {
               id="email"
               name="email"
               className="detail__form--input"
-              value={user.email || ""}
+              // value={user.email || ""}
               // readOnly
               onChange={(e) => setEmail(e.target.value)}
               required
