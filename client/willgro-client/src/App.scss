@@ -3,3 +3,10 @@
   margin: 0;
   // border: 1px solid red;
 }
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
